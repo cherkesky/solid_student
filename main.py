@@ -70,13 +70,20 @@ class Student():
       self.__cohort = newCohort
     else:
       raise TypeError('Not An Integer')
-guy = Student()
 
-print(dir(guy))
+  @property 
+  def full_name(self):
+    try: 
+      return self.first + " " + self.last
+    except AttributeError:
+      return "Not Defined"
+
+guy = Student()
 
 guy.first = "Guy"
 guy.last = "Cherkesky"
 guy.age = 39
 guy.cohort = 36
 
+print(guy.full_name)
 
