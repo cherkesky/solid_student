@@ -14,14 +14,7 @@ The full name property should return first name and last name separated by a spa
 '''
 
 class Student():
-  def __init__(self,last, age, cohort):
-    self.last = last
-    self.age = age
-    self.cohort = cohort
 
-  def fullname(self):
-    return (self.first+" "+self.last)
-  
   @property 
   def first(self):
     try: 
@@ -36,14 +29,54 @@ class Student():
     else:
       raise TypeError('Not A String')
 
-guy = Student("Cherkesky", "39","36")
-print(guy.fullname())
-print(guy.first)
+  @property 
+  def last(self):
+    try: 
+      return self.__last
+    except AttributeError:
+      return "Not Defined"
+
+  @last.setter
+  def last(self, newLast):
+    if type(newLast) is str:
+      self.__last = newLast
+    else:
+      raise TypeError('Not A String')
+  
+  @property 
+  def age(self):
+    try: 
+      return self.__age
+    except AttributeError:
+      return "Not Defined"
+
+  @age.setter
+  def age(self, newAge):
+    if type(newAge) is int:
+      self.__age = newAge
+    else:
+      raise TypeError('Not An Integer')
+
+  @property 
+  def cohort(self):
+    try: 
+      return self.__cohort
+    except AttributeError:
+      return "Not Defined"
+
+  @cohort.setter
+  def cohort(self, newCohort):
+    if type(newCohort) is int:
+      self.__cohort = newCohort
+    else:
+      raise TypeError('Not An Integer')
+guy = Student()
+
+print(dir(guy))
+
 guy.first = "Guy"
-
-print(guy.fullname())
-
-
-
+guy.last = "Cherkesky"
+guy.age = 39
+guy.cohort = 36
 
 
