@@ -13,7 +13,15 @@ Ensure that only the appropriate value can be assigned to each.
 The full name property should return first name and last name separated by a space. It's value cannot be set.
 '''
 
+'''
+Change your class so that any objects created from it will be rerpesented as strings in the following format.
+
+Mike Ellis is 35 years old and is in cohort 39
+'''
+
 class Student():
+  def __str__(self):
+    return f"{self.full_name} is {self.age} years old and is in cohort {self.cohort}"
 
   @property 
   def first(self):
@@ -86,4 +94,5 @@ guy.age = 39
 guy.cohort = 36
 
 print(guy.full_name)
+print(guy)
 
